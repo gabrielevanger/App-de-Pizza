@@ -50,39 +50,37 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        binding.btAll.setOnClickListener{
+        binding.btPizza.setOnClickListener{
             clicked = true
             if(clicked) {
-                binding.btAll.setBackgroundResource(R.drawable.bg_button_enabled)
-                binding.btAll.setTextColor(Color.WHITE)
+                binding.btPizza.setBackgroundResource(R.drawable.bg_button_enabled)
+                binding.btPizza.setTextColor(Color.WHITE)
+                binding.btAll.setBackgroundResource(R.drawable.bg_button_disabled)
+                binding.btAll.setTextColor(R.color.dark_gray)
                 binding.btChicken.setBackgroundResource(R.drawable.bg_button_disabled)
                 binding.btChicken.setTextColor(R.color.dark_gray)
                 binding.btKebab.setBackgroundResource(R.drawable.bg_button_disabled)
                 binding.btKebab.setTextColor(R.color.dark_gray)
-                binding.btPizza.setBackgroundResource(R.drawable.bg_button_disabled)
-                binding.btPizza.setTextColor(R.color.dark_gray)
-                binding.recyclerViewProducts.visibility = View.INVISIBLE
-                binding.txtListTitle.text = "All"
+                binding.recyclerViewProducts.visibility = View.VISIBLE
+                binding.txtListTitle.text = "Popular Pizza"
             }
         }
 
-        binding.btAll.setOnClickListener{
+        binding.btKebab.setOnClickListener{
             clicked = true
             if(clicked) {
-                binding.btAll.setBackgroundResource(R.drawable.bg_button_enabled)
-                binding.btAll.setTextColor(Color.WHITE)
-                binding.btChicken.setBackgroundResource(R.drawable.bg_button_disabled)
-                binding.btChicken.setTextColor(R.color.dark_gray)
-                binding.btKebab.setBackgroundResource(R.drawable.bg_button_disabled)
-                binding.btKebab.setTextColor(R.color.dark_gray)
+                binding.btKebab.setBackgroundResource(R.drawable.bg_button_enabled)
+                binding.btKebab.setTextColor(Color.WHITE)
                 binding.btPizza.setBackgroundResource(R.drawable.bg_button_disabled)
                 binding.btPizza.setTextColor(R.color.dark_gray)
+                binding.btAll.setBackgroundResource(R.drawable.bg_button_disabled)
+                binding.btAll.setTextColor(R.color.dark_gray)
+                binding.btChicken.setBackgroundResource(R.drawable.bg_button_disabled)
+                binding.btChicken.setTextColor(R.color.dark_gray)
                 binding.recyclerViewProducts.visibility = View.INVISIBLE
-                binding.txtListTitle.text = "All"
+                binding.txtListTitle.text = "Kebab"
             }
         }
-
-
 
 
         }
