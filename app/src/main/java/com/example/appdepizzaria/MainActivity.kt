@@ -5,15 +5,22 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.appdepizzaria.adapter.ProductAdapter
 import com.example.appdepizzaria.databinding.ActivityMainBinding
+import com.example.appdepizzaria.listitems.Products
+import com.example.appdepizzaria.model.Product
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.flow.collectIndexed
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var productAdapter: ProductAdapter
+    private val products = Products()
+    private val productList: MutableList<Product> = mutableListOf()
     var clicked = false
 
     @SuppressLint("ResourceAsColor")
@@ -24,9 +31,19 @@ class MainActivity : AppCompatActivity() {
 
         window.statusBarColor = Color.parseColor("#E0E0E0")
 
-       CoroutineScope(Dispatchers.IO).launch {
+        CoroutineScope(Dispatchers.IO).launch {
+            products.getProducts().collectIndexed { index, value ->
+                for (p in value){
+                    productList.add(p)
+                }
+            }
+        }
 
-       }
+        val recyclerViewProducts = binding.recyclerViewProducts
+        recyclerViewProducts.layoutManager = GridLayoutManager(this, 2)
+        recyclerViewProducts.setHasFixedSize(true)
+        productAdapter = ProductAdapter(this,productList)
+        recyclerViewProducts.adapter = productAdapter
 
         binding.btAll.setOnClickListener{
             clicked = true
