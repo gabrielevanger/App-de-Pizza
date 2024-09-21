@@ -52,7 +52,7 @@
             android:textStyle="bold"/>
 
         <Button
-            android:id="@+id/btToIncrease"
+            android:id="@+id/btIncrease"
             android:layout_width="60dp"
             android:layout_height="50dp"
             android:text="+"
@@ -115,7 +115,7 @@
            android:text="Mustard"/>
 
        <RadioButton
-           android:id="@+id/btKetchuo"
+           android:id="@+id/btKetchup"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:text="Ketchup"/>
