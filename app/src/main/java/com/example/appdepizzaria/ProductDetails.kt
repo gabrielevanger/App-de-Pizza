@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.icu.text.DecimalFormat
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -24,7 +25,7 @@ class ProductDetails : AppCompatActivity() {
         window.statusBarColor = Color.parseColor("#E0E0E0")
 
         val imgProduct = intent.extras!!.getInt("imgProduct")
-        val name = intent.extras!!.getInt("name")
+        val name = intent.extras!!.getString("name")
         val price = intent.extras!!.getString("price")!!.toDouble()
         var newPrice = price
         val decimalFormat = DecimalFormat.getCurrencyInstance()
@@ -90,14 +91,14 @@ class ProductDetails : AppCompatActivity() {
                     ""
                 }
             }
-
+                //debug
+//            Toast.makeText(this,name.toString(), Toast.LENGTH_SHORT).show()
             val intent = Intent(this, Payment::class.java)
             intent.putExtra("name",name)
             intent.putExtra("amount", amount)
             intent.putExtra("total", newPrice)
             intent.putExtra("saucesAndDrinks", saucesAndDrinks)
             startActivity(intent)
-
         }
 
     }
